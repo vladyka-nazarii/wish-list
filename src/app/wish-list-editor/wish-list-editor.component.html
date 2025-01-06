@@ -5,17 +5,19 @@
 >
   <div class="wish-editor">
     <header class="wish-editor__header">
-      <p>Edit Wish Item</p>
+      <h2>Edit Wish Item</h2>
       <button class="wish-editor__header__close-btn" (click)="onClose()">
         X
       </button>
     </header>
+    <label>Link where to buy</label>
     <input
       [(ngModel)]="activeProduct.url"
       type="text"
       placeholder="Enter product URL"
       [readonly]="readonly"
     />
+    <label>Link to the image</label>
     <input
       [(ngModel)]="activeProduct.image"
       type="text"
@@ -23,22 +25,35 @@
       [readonly]="readonly"
     />
     <img class="wish-editor__image" [src]="activeProduct.image" />
+    <label>Name of the product</label>
     <input
       [(ngModel)]="activeProduct.title"
       type="text"
       placeholder="Enter product Title"
       [readonly]="readonly"
     />
+    <label>Price of the product</label>
     <input
       [(ngModel)]="activeProduct.price"
       type="number"
       placeholder="Enter product Price"
       [readonly]="readonly"
+      min="0"
     />
-    <div>
-      <button (click)="onDelete(activeProduct.id)" *ngIf="!readonly">
+    <footer class="wish-editor__footer">
+      <button
+        class="wish-editor__footer__delete-btn"
+        (click)="onDelete(activeProduct.id)"
+        *ngIf="!readonly"
+      >
         Delete</button
-      ><button (click)="onSave(activeProduct)" *ngIf="!readonly">Save</button>
-    </div>
+      ><button
+        class="wish-editor__footer__save-btn"
+        (click)="onSave(activeProduct)"
+        *ngIf="!readonly"
+      >
+        Save
+      </button>
+    </footer>
   </div>
 </div>

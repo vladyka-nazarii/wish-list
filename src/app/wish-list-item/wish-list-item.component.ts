@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { FirestoreService, WishItem } from '../firestore.service';
 import { WishListEditorComponent } from '../wish-list-editor/wish-list-editor.component';
 
 @Component({
   selector: 'app-wish-list-item',
-  imports: [NgFor, WishListEditorComponent],
+  imports: [NgFor, WishListEditorComponent, CommonModule],
   templateUrl: './wish-list-item.component.html',
   styleUrl: './wish-list-item.component.scss',
 })

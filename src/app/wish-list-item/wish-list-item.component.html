@@ -6,7 +6,9 @@
   >
     <img class="wish-item__image" [src]="product.image" [alt]="product.title" />
     <h2 class="wish-item__title">{{ product.title }}</h2>
-    <p class="price">{{ product.price }}</p>
+    <p class="wish-item__price">
+      {{ product.price | currency : "UAH" : "symbol-narrow" }}
+    </p>
   </li>
 </ul>
 <app-wish-list-editor

@@ -1,16 +1,52 @@
-<div>
-  <button (click)="goToHome()" *ngIf="readonly">Home</button>
-  <button (click)="share()" *ngIf="!readonly">Share</button>
-  <button (click)="user?.isAnonymous ? login() : logout()">
-    {{ user?.isAnonymous ? "Login with Google" : "Log out" }}
-  </button>
-  <img
-    [src]="user?.photoURL"
-    [alt]="user?.displayName"
-    *ngIf="user?.photoURL"
-  />
-  <p>{{ user?.displayName }}</p>
+<header class="wish-header">
+  <div class="wish-header__actions">
+    <button
+      class="wish-header__actions__button"
+      (click)="goToHome()"
+      *ngIf="readonly"
+    >
+      Home
+    </button>
+    <button
+      class="wish-header__actions__button"
+      (click)="share()"
+      *ngIf="!readonly && products.length > 0"
+    >
+      Share
+    </button>
+    <button
+      class="wish-header__actions__button"
+      (click)="user?.isAnonymous ? login() : logout()"
+    >
+      {{ user?.isAnonymous ? "Login with Google" : "Log out" }}
+    </button>
+    <div class="wish-header__actions__user">
+      <img
+        class="wish-header__actions__user__avatar"
+        [src]="user?.photoURL"
+        alt="avatar"
+        *ngIf="user?.photoURL"
+      />
+      <span>{{ user?.displayName }}</span>
+    </div>
+  </div>
   <h1>Wish List</h1>
-  <input [(ngModel)]="url" placeholder="Enter product URL" *ngIf="!readonly" />
-  <button (click)="addProduct()" *ngIf="!readonly">Add</button>
-</div>
+  <div class="wish-header__add">
+    <span>{{
+      "Add your" + (products.length === 0 ? " first " : " ") + "product"
+    }}</span>
+    <input
+      class="wish-header__add__input"
+      [(ngModel)]="url"
+      placeholder="Enter product URL"
+      *ngIf="!readonly"
+    />
+    <button
+      class="wish-header__add__button"
+      (click)="addProduct()"
+      *ngIf="!readonly"
+    >
+      Add
+    </button>
+  </div>
+</header>
