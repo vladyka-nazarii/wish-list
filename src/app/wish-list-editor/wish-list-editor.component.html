@@ -1,0 +1,39 @@
+<div
+  class="wish-editor__overlay"
+  *ngIf="activeProduct"
+  (click)="onOverlayClick($event)"
+>
+  <div class="wish-editor">
+    <header class="wish-editor__header">
+      <p>Edit Wish Item</p>
+      <button class="wish-editor__header__close-btn" (click)="onClose()">
+        X
+      </button>
+    </header>
+    <input
+      [(ngModel)]="activeProduct.url"
+      type="text"
+      placeholder="Enter product URL"
+    />
+    <input
+      [(ngModel)]="activeProduct.image"
+      type="text"
+      placeholder="Enter product Image URL"
+    />
+    <img class="wish-editor__image" [src]="activeProduct.image" />
+    <input
+      [(ngModel)]="activeProduct.title"
+      type="text"
+      placeholder="Enter product Title"
+    />
+    <input
+      [(ngModel)]="activeProduct.price"
+      type="number"
+      placeholder="Enter product Price"
+    />
+    <div>
+      <button (click)="onDelete(activeProduct.id)">Delete</button
+      ><button (click)="onSave(activeProduct)">Save</button>
+    </div>
+  </div>
+</div>

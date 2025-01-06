@@ -1,0 +1,38 @@
+.wish-editor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  border-radius: 8px;
+  background-color: white;
+  padding: 24px;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &__close-btn {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__image {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}

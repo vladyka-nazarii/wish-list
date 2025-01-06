@@ -21,9 +21,9 @@ export class AppComponent implements OnInit {
     private firestoreService: FirestoreService
   ) {}
 
-  updateProducts: () => void = async () => {
+  async updateProducts() {
     this.wishItems = await this.firestoreService.getUserData();
-  };
+  }
 
   ngOnInit(): void {
     this.authService.subscribeAuthChange((user) => {

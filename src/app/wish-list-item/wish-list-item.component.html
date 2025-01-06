@@ -1,13 +1,16 @@
-<div>
-  <div class="wish-item" *ngFor="let product of products">
-    <img
-      class="wish-item__image"
-      [src]="product.image"
-      alt="{{ product.title }}"
-    />
+<ul class="wish-item__list">
+  <li
+    class="wish-item"
+    *ngFor="let product of products"
+    (click)="setSelectedProduct(product)"
+  >
+    <img class="wish-item__image" [src]="product.image" [alt]="product.title" />
     <h2 class="wish-item__title">{{ product.title }}</h2>
     <p class="price">{{ product.price }}</p>
-    <button>Edit</button>
-    <button (click)="deleteProduct(product.id)">Delete</button>
-  </div>
-</div>
+  </li>
+</ul>
+<app-wish-list-editor
+  [product]="selectedProduct"
+  (closePopup)="onClosePopup()"
+  (updateProducts)="updateParentProducts()"
+></app-wish-list-editor>

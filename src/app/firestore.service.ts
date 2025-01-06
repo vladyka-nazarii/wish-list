@@ -51,6 +51,15 @@ export class FirestoreService {
     await deleteDoc(docRef);
   }
 
+  async editProduct(data: WishItem): Promise<void> {
+    const docRef = doc(
+      this.firestore,
+      `users/${this.auth.currentUser?.uid}/wishlist`,
+      data.id
+    );
+    await setDoc(docRef, data);
+  }
+
   async getUserData(): Promise<WishItem[]> {
     const q = query(
       collection(
