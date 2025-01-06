@@ -32,11 +32,15 @@ export class HeaderComponent {
     this.metaService.fetchMetaTags(this.url).subscribe((data) => {
       console.log(data);
       this.firestoreService.addProductForUser(data);
-      this.url = ''; // Clear the input field
+      this.url = '';
     });
   }
 
   login() {
     this.authService.signInWithGoogle();
+  }
+
+  logout() {
+    this.authService.signOut();
   }
 }

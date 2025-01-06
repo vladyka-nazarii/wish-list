@@ -1,8 +1,8 @@
 <div>
-  <button (click)="login()">
+  <button (click)="user?.isAnonymous ? login() : logout()">
     {{ user?.isAnonymous ? "Login with Google" : "Log out" }}
   </button>
-  <img [src]="user?.photoURL" alt="{{ user?.displayName }}" />
+  <img [src]="user?.photoURL" [alt]="user?.displayName" />
   <p>{{ user?.displayName }}</p>
   <h1>Wish List</h1>
   <input [(ngModel)]="url" placeholder="Enter product URL" />
