@@ -1,9 +1,10 @@
 <div>
-  <h1>Wish List</h1>
-  <input [(ngModel)]="url" placeholder="Enter product URL" />
-  <button (click)="addProduct()">Add</button>
-  <div class="wish-item" *ngFor="let item of items">
-    <h2 class="wish-item__title">{{ item.title }}</h2>
-    <img class="wish-item__image" [src]="item.image" alt="{{ item.title }}" />
+  <div class="wish-item" *ngFor="let product of products">
+    <h2 class="wish-item__title">{{ product.title }}</h2>
+    <img
+      class="wish-item__image"
+      [src]="product.image"
+      alt="{{ product.title }}"
+    />
   </div>
 </div>

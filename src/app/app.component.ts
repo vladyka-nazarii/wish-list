@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { WishListItemComponent } from './wish-list-item/wish-list-item.component';
 import { AuthService } from './auth.service';
 import { FirestoreService, WishItem } from './firestore.service';
+import { User } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { FirestoreService, WishItem } from './firestore.service';
 })
 export class AppComponent implements OnInit {
   wishItems: WishItem[] = [];
+  user: User | null = null;
 
   constructor(
     private authService: AuthService,
@@ -26,7 +28,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authService.subscribeAuthChange((user) => {
       if (user?.uid) {
-        console.log(user.uid);
+        this.user = user;
         this.updateProducts();
       } else {
         this.authService.loginAnonymously();
