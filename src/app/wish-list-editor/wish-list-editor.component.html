@@ -6,18 +6,19 @@
   <div class="wish-editor">
     <header class="wish-editor__header">
       <h2>Edit Wish Item</h2>
+      <a [href]="activeProduct.url" target="_blank">Buy now</a>
       <button class="wish-editor__header__close-btn" (click)="onClose()">
         X
       </button>
     </header>
-    <label>Link where to buy</label>
+    <label>Where to buy</label>
     <input
       [(ngModel)]="activeProduct.url"
       type="text"
       placeholder="Enter product URL"
       [readonly]="readonly"
     />
-    <label>Link to the image</label>
+    <label>Image link</label>
     <input
       [(ngModel)]="activeProduct.image"
       type="text"
@@ -25,14 +26,14 @@
       [readonly]="readonly"
     />
     <img class="wish-editor__image" [src]="activeProduct.image" />
-    <label>Name of the product</label>
+    <label>Name</label>
     <input
       [(ngModel)]="activeProduct.title"
       type="text"
       placeholder="Enter product Title"
       [readonly]="readonly"
     />
-    <label>Price of the product</label>
+    <label>Price</label>
     <input
       [(ngModel)]="activeProduct.price"
       type="number"
