@@ -15,21 +15,27 @@ import { User } from '@angular/fire/auth';
 export class AppComponent implements OnInit {
   wishItems: WishItem[] = [];
   user: User | null = null;
+  readonly: boolean = false;
 
   constructor(
     private authService: AuthService,
     private firestoreService: FirestoreService
   ) {}
 
-  async updateProducts() {
-    this.wishItems = await this.firestoreService.getUserData();
+  async updateProducts(hash?: string) {
+    this.wishItems = await this.firestoreService.getUserData(hash);
+    if (!hash && this.readonly) {
+      this.readonly = false;
+    }
   }
 
   ngOnInit(): void {
     this.authService.subscribeAuthChange((user) => {
+      const hash = window.location.hash?.slice(1);
+      this.readonly = !!hash;
       if (user?.uid) {
         this.user = user;
-        this.updateProducts();
+        this.updateProducts(hash);
       } else {
         this.authService.loginAnonymously();
       }

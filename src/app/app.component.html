@@ -1,12 +1,14 @@
 <header>
   <app-header
     [user]="user"
+    [readonly]="readonly"
     [products]="wishItems"
     (updateProducts)="updateProducts()"
   ></app-header>
 </header>
 <main>
   <app-wish-list-item
+    [readonly]="readonly"
     [products]="wishItems"
     (updateProducts)="updateProducts()"
   ></app-wish-list-item>

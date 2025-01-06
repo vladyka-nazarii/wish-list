@@ -14,26 +14,31 @@
       [(ngModel)]="activeProduct.url"
       type="text"
       placeholder="Enter product URL"
+      [readonly]="readonly"
     />
     <input
       [(ngModel)]="activeProduct.image"
       type="text"
       placeholder="Enter product Image URL"
+      [readonly]="readonly"
     />
     <img class="wish-editor__image" [src]="activeProduct.image" />
     <input
       [(ngModel)]="activeProduct.title"
       type="text"
       placeholder="Enter product Title"
+      [readonly]="readonly"
     />
     <input
       [(ngModel)]="activeProduct.price"
       type="number"
       placeholder="Enter product Price"
+      [readonly]="readonly"
     />
     <div>
-      <button (click)="onDelete(activeProduct.id)">Delete</button
-      ><button (click)="onSave(activeProduct)">Save</button>
+      <button (click)="onDelete(activeProduct.id)" *ngIf="!readonly">
+        Delete</button
+      ><button (click)="onSave(activeProduct)" *ngIf="!readonly">Save</button>
     </div>
   </div>
 </div>

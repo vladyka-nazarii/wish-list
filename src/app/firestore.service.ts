@@ -60,11 +60,11 @@ export class FirestoreService {
     await setDoc(docRef, data);
   }
 
-  async getUserData(): Promise<WishItem[]> {
+  async getUserData(hash?: string): Promise<WishItem[]> {
     const q = query(
       collection(
         this.firestore,
-        `users/${this.auth.currentUser?.uid}/wishlist/`
+        `users/${hash || this.auth.currentUser?.uid}/wishlist/`
       )
     );
     const querySnapshot = await getDocs(q);

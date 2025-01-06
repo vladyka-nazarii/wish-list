@@ -11,6 +11,7 @@ import { WishListEditorComponent } from '../wish-list-editor/wish-list-editor.co
 })
 export class WishListItemComponent {
   @Input() products!: WishItem[];
+  @Input() readonly!: boolean;
   @Output() updateProducts: EventEmitter<void> = new EventEmitter<void>();
 
   selectedProduct: WishItem | null = null;

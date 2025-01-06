@@ -1,10 +1,16 @@
 <div>
+  <button (click)="goToHome()" *ngIf="readonly">Home</button>
+  <button (click)="share()" *ngIf="!readonly">Share</button>
   <button (click)="user?.isAnonymous ? login() : logout()">
     {{ user?.isAnonymous ? "Login with Google" : "Log out" }}
   </button>
-  <img [src]="user?.photoURL" [alt]="user?.displayName" />
+  <img
+    [src]="user?.photoURL"
+    [alt]="user?.displayName"
+    *ngIf="user?.photoURL"
+  />
   <p>{{ user?.displayName }}</p>
   <h1>Wish List</h1>
-  <input [(ngModel)]="url" placeholder="Enter product URL" />
-  <button (click)="addProduct()">Add</button>
+  <input [(ngModel)]="url" placeholder="Enter product URL" *ngIf="!readonly" />
+  <button (click)="addProduct()" *ngIf="!readonly">Add</button>
 </div>

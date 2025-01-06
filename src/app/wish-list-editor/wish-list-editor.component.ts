@@ -21,6 +21,7 @@ const OVERLAY_CLASS = 'wish-editor__overlay';
 })
 export class WishListEditorComponent implements OnChanges {
   @Input() product!: WishItem | null;
+  @Input() readonly!: boolean;
   @Output() closePopup: EventEmitter<void> = new EventEmitter<void>();
   @Output() updateProducts: EventEmitter<void> = new EventEmitter<void>();
 
