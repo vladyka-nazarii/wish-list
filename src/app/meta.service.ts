@@ -32,16 +32,7 @@ export class MetaService {
             .querySelector('meta[property="og:image"]')
             ?.getAttribute('content') || '';
 
-        // const elements = (
-        //   Array.from(
-        //     doc.querySelectorAll('[class*="price"]')
-        //   ) as HTMLDivElement[]
-        // )
-        //   .filter(({ innerText }) => innerText.includes('₴'))
-        //   .map(({ innerText }) => innerText);
-        // console.log(elements);
-
-        return { url, title, image };
+        return { id: '', url, title, image, price: 0 };
       })
     );
   }

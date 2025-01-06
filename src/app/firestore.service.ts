@@ -6,14 +6,18 @@ import {
   getDocs,
   query,
   setDoc,
+  deleteDoc,
+  doc,
 } from '@angular/fire/firestore';
 import { Auth, authState } from '@angular/fire/auth';
 import { filter, map } from 'rxjs/operators';
 
 export interface WishItem {
+  id: string;
   url: string;
   image: string;
   title: string;
+  price: number;
 }
 
 @Injectable({
@@ -27,7 +31,7 @@ export class FirestoreService {
     map((user) => user!)
   );
 
-  async addProductForUser(data: WishItem) {
+  async addProduct(data: WishItem) {
     const ref = await addDoc(
       collection(
         this.firestore,
@@ -36,6 +40,15 @@ export class FirestoreService {
       data
     );
     setDoc(ref, { ...data, id: ref.id });
+  }
+
+  async removeProduct(id: string): Promise<void> {
+    const docRef = doc(
+      this.firestore,
+      `users/${this.auth.currentUser?.uid}/wishlist`,
+      id
+    );
+    await deleteDoc(docRef);
   }
 
   async getUserData(): Promise<WishItem[]> {

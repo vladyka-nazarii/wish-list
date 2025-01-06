@@ -31,7 +31,7 @@ export class HeaderComponent {
 
     this.metaService.fetchMetaTags(this.url).subscribe((data) => {
       console.log(data);
-      this.firestoreService.addProductForUser(data);
+      this.firestoreService.addProduct(data);
       this.url = '';
     });
   }

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { WishItem } from '../firestore.service';
+import { FirestoreService, WishItem } from '../firestore.service';
 
 @Component({
   selector: 'app-wish-list-item',
@@ -10,4 +10,10 @@ import { WishItem } from '../firestore.service';
 })
 export class WishListItemComponent {
   @Input() products!: WishItem[];
+
+  constructor(private firestoreService: FirestoreService) {}
+
+  deleteProduct: (id: string) => void = async (id) => {
+    await this.firestoreService.removeProduct(id);
+  };
 }
