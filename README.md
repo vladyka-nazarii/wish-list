@@ -1,59 +1,53 @@
 # WishList
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+Wish List is a web application inspired by rewish.io, designed to help users curate and share their personalized wish lists with ease.
+Whether you’re planning a shopping list, a gift registry, or simply keeping track of products you admire, Wish List provides a seamless experience for organizing and sharing your favorite items.
 
-## Development server
+🌟 Core Functionality
 
-To start a local development server, run:
+Add Products via URL: Paste a product URL (e.g., from online stores or marketplaces) into the input field,
+and the app will fetch metadata like the product's title and image using Open Graph (og:title, og:image) tags.
+Interactive Product Cards: Display fetched metadata as visually appealing product cards in your wish list.
+Edit and Remove: Update the product URL to fetch new metadata or remove items from your list.
+Add Unlimited Products: Expand your wish list with as many items as you like.
 
-```bash
-ng serve
-```
+👥 User Accounts and Authentication
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Google Login: Secure login using Firebase Authentication with support for Google accounts.  
+Guest Mode: Use the app without an account and later merge your guest list with a registered account.
 
-## Code scaffolding
+🔄 Backend Integration
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Cloud-Backed Storage: Save your wish list to Firebase Firestore, ensuring your data is available across devices.
 
-```bash
-ng generate component component-name
-```
+📤 Share with Others
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+View-Only Sharing: Generate a shareable link to allow others to view your wish list without editing it.
 
-```bash
-ng generate --help
-```
+🚀 Get Started
 
-## Building
+Clone the repository:
 
-To build the project run:
+```git clone https://github.com/your-repo/wish-list.git```  
+```cd wish-list```
 
-```bash
-ng build
-```
+Install dependencies:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+```npm install```
 
-## Running unit tests
+Run the app:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+```npm start```
 
-```bash
-ng test
-```
+🛠️ Technologies Used
 
-## Running end-to-end tests
+Frontend: Angular 19.0.6  
+Backend: Firebase (Firestore, Authentication)
 
-For end-to-end (e2e) testing, run:
+✨ Contributing
 
-```bash
-ng e2e
-```
+We welcome contributions! If you’d like to report a bug or propose a feature, feel free to open an issue or submit a pull request.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+📄 License
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the MIT License.
